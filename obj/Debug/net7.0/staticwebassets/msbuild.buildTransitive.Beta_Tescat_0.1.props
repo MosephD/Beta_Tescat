@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Beta_Tescat_0.1.props" />
+</Project>
