@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Beta_Tescat_0.1.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Images\\navbar-bg.jpg",
+      "PackagePath": "staticwebassets\\Images\\navbar-bg.jpg"
+    },
+    {
       "Id": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
