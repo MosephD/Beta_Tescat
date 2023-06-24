@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "picture": "images/users/1.jpg",
+    "name": "Itzel Ameyalli Castro Castillo",
+    "position": "Cuenta de Gastos",
+    "Entry_Date": "25/12/2022",
+    "telephone": 133,
+    "department": "Administracion",
+    "Web_Privileges": 0
+  },
+  {
+    "id": 2,
+    "picture": "images/users/2.jpg",
+    "name": "Marco Antonio Ramirez Perez",
+    "position": "Comercializacion",
+    "Entry_Date": "25/12/2022",
+    "telephone": 133,
+    "department": "Administracion",
+    "Web_Privileges": 1
+  }
+]

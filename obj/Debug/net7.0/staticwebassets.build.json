@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JD+8Ta65RTQXXmQ8hBoCh5jcztnwq712N5UXubpLIN4=",
+  "Hash": "1yvBcM0ksURF7FKAxv9X73IzXuxP0MifAwKOtb4J1fI=",
   "Source": "Beta_Tescat_0.1",
   "BasePath": "_content/Beta_Tescat_0.1",
   "Mode": "Default",
@@ -1324,6 +1324,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\navbar-bg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Images\\Users\\1.jpg",
+      "SourceId": "Beta_Tescat_0.1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\",
+      "BasePath": "_content/Beta_Tescat_0.1",
+      "RelativePath": "Images/Users/1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Users\\1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Images\\Users\\2.jpg",
+      "SourceId": "Beta_Tescat_0.1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\",
+      "BasePath": "_content/Beta_Tescat_0.1",
+      "RelativePath": "Images/Users/2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Users\\2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Users\\users-data.json",
+      "SourceId": "Beta_Tescat_0.1",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\",
+      "BasePath": "_content/Beta_Tescat_0.1",
+      "RelativePath": "Users/users-data.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Users\\users-data.json"
     }
   ]
 }

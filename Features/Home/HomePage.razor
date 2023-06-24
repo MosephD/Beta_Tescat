@@ -1,7 +1,69 @@
 ﻿@page "/"
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
 
+
+<PageTitle>Tescat</PageTitle>
 <h3>HomePage</h3>
 
-@code {
+@if (_users == null)
+{
 
+    <p>Loading users...</p>
+
+}
+else
+{
+   <div class="grid"> @*Aqui creamos cada tarjeta y las agrupamos con la clase .grid y le pasamos los datos del usuario desde User.cs*@
+        @foreach (var user in _users)
+        {
+            <div class="card shadow" style="width: 18rem;">
+                <img src="@user.Picture" class="card-img-top" alt="@user.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@user.FormattedName</h5>
+                    <h6 class="card-subtitle mb-3 text-muted">
+                        <i class="bi bi-building-fill"></i>
+                        @user.Position
+                    </h6>
+                    <div class="d-flex justify-content-between">
+                        <span>
+                            <span class="bi bi-calendar2-week-fill mr-2"></span>
+                            @user.Entry_Date
+                        </span>
+                        <span>
+                            <span class="bi bi-telephone-fill mr-2"></span>
+                            @user.Telephone 
+                        </span>
+                    </div>
+                </div>
+            </div>
+           }
+    </div>
+
+    }
+
+
+
+
+@code {
+    private IEnumerable<User>? _users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var baseUri = navigationManager.BaseUri;
+            var usersUrl = $"{baseUri}Users/users-data.json";
+            _users = await httpClient.GetFromJsonAsync<IEnumerable<User>>(usersUrl);
+        
+        }
+        catch (HttpRequestException ex)
+    
+        {
+            Console.WriteLine($"There was a problem user data: {ex.Message}");
+        }
+
+
+
+        }
 }
