@@ -74,13 +74,10 @@ C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\staticwebass
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\staticwebassets.pack.json
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\staticwebassets.build.json
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\bundle\Beta_Tescat_0.1.styles.css
-C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\projectbundle\Beta_Tescat_0.1.bundle.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\Beta_Tescat_0.1.csproj.CopyComplete
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\Beta_Tescat_0.1.dll
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\refint\Beta_Tescat_0.1.dll
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\Beta_Tescat_0.1.pdb
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\Beta_Tescat_0.1.genruntimeconfig.cache
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\ref\Beta_Tescat_0.1.dll
-C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Shared\oldMainLayout.razor.rz.scp.css

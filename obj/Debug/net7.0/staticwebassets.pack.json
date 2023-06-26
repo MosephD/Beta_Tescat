@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Beta_Tescat_0.1.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Beta_Tescat_0.1.bundle.scp.css"
-    },
-    {
       "Id": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\Images\\Users\\1.jpg",
       "PackagePath": "staticwebassets\\Images\\Users\\1.jpg"
     },

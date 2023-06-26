@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Beta_Tescat_0._1.Features.Home
+namespace Beta_Tescat_0._1.Pages.Features.Home
 {
     public class User
     {
@@ -35,7 +35,7 @@ namespace Beta_Tescat_0._1.Features.Home
 
         public int Telephone { get; set; }
 
-        public int Web_Privileges { get; set; } 
+        public int Web_Privileges { get; set; }
 
 
 
@@ -43,4 +43,3 @@ namespace Beta_Tescat_0._1.Features.Home
 
     }
 }
-

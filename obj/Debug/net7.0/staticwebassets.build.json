@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1yvBcM0ksURF7FKAxv9X73IzXuxP0MifAwKOtb4J1fI=",
+  "Hash": "HmVaKWWzMu78FXn5e9Y3oPAmCZHKCWR/bla/OLwhjC8=",
   "Source": "Beta_Tescat_0.1",
   "BasePath": "_content/Beta_Tescat_0.1",
   "Mode": "Default",
@@ -1035,40 +1035,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\medin\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.7\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
-    },
-    {
-      "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Beta_Tescat_0.1.styles.css",
-      "SourceId": "Beta_Tescat_0.1",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/Beta_Tescat_0.1",
-      "RelativePath": "Beta_Tescat_0.1.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Beta_Tescat_0.1.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Beta_Tescat_0.1.bundle.scp.css",
-      "SourceId": "Beta_Tescat_0.1",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/Beta_Tescat_0.1",
-      "RelativePath": "Beta_Tescat_0.1.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Beta_Tescat_0.1.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat_0.1\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
