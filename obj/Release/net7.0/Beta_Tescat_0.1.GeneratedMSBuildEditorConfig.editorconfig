@@ -20,40 +20,24 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/HomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxIb21lUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Layout/Header.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcTGF5b3V0XEhlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcTGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Shared/LoginDisplay.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-txogsi57b2
-
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-d7iz6ovtvk
-
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Areas/Identity/Pages/Account/LogOut.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Error.cshtml]
