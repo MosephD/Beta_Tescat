@@ -24,6 +24,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxIb21lUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/Lifecycle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxMaWZlY3ljbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/SearchPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxTZWFyY2hQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/UserCard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxVc2VyQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Layout/Header.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcTGF5b3V0XEhlYWRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,13 +44,21 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcTGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/SearchFilter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxTZWFyY2hGaWx0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mzfwodcndy
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/UserDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxVc2VyRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-o8fm2lofyt
+
+[C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Features/Home/UserSearch.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVhdHVyZXNcSG9tZVxVc2VyU2VhcmNoLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-2absosbzfd
 
 [C:/Users/medin/source/repos/Tescat/Beta_Tescat_0.1/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s

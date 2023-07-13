@@ -1,0 +1,103 @@
+﻿
+<div class="drawer-wrapper @(_isOpen ? "slide" : "")">
+    @*the "slide" css class is applied only when _isOpen field is set to true otherwise only the drawer-wrapper class will be applied*@
+
+    <div class="drawer-mask"></div>
+    <div class="drawer">
+        @if (_activeUser is not null)
+        {
+            <div class="drawer-content">
+                <img src="@_activeUser.Picture" />
+                <div class="user-details">
+
+                    <h3>@_activeUser.Name</h3>
+
+                    <h6 class="mb-3 text-muted">
+
+                        <span class="bi bi-person-fill"></span>
+                        @_activeUser.Position
+
+                    </h6>
+
+                    <div class="mt-4">
+                        <span class="me-5">
+
+                            <span class="bi bi-calendar2-week-fill  me-2"></span>
+                            @_activeUser.Entry_Date
+
+
+                        </span>
+                        <span class="me-5">
+
+                            <span class="bi bi-geo-alt-fill  me-2"></span>
+                            @_activeUser.Office
+
+                        </span>
+                        <span>
+
+                            <span class="bi bi-building-fill  me-2"></span>
+                            @_activeUser.Department
+
+                        </span>
+                    </div>
+
+
+                    <p class="mt-4 "><span class="bi bi-telephone-fill me-2"></span>Numero de Extension: <span class="fw-bold">@_activeUser.Telephone</span></p>
+
+                    <p>
+                        <span class="bi bi-globe2 me-2"></span>Privilegios Web:
+                        @if (_activeUser.Web_Privileges != 1)
+                        {
+                            <span class="fw-bold">No</span>
+
+                        }
+                        else
+                        {
+                            <span class="fw-bold">Si</span>
+                        }
+                    </p>
+
+                </div>
+                <div class="drawer-controls">
+
+                    <button class="btn btn-secondary" @onclick="Close">Cerrar</button>
+
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+@code {
+    private bool _isOpen;
+    private User? _activeUser;
+   
+
+    [Parameter, EditorRequired]
+    public User? User { get; set; }
+
+
+    protected override void
+    OnParametersSet()
+    {
+        if (User != null)
+        {
+            _activeUser = User;
+            _isOpen = true;
+           
+        }
+    }
+
+    private void Close()
+    {
+        _activeUser = null;
+        _isOpen = false;
+    
+    }
+
+
+}

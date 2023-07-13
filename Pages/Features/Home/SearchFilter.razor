@@ -1,0 +1,56 @@
+﻿@inject NavigationManager NavManager
+
+<div class="filters">
+    <label for="UserOffice">Oficina</label>
+
+
+    <input class="form-control"
+           id="UserOffice"
+           type="text"
+    @bind="_userOffice" />
+
+
+    <button class="btn btn-outline-primary"
+    @onclick="FilterSearchResults">
+
+        Filtrar
+
+    </button>
+
+
+    <button class="btn btn-outline-secondary"
+    @onclick="ClearSearchFilter">
+
+        Limpiar
+
+    </button>
+
+</div>
+
+
+
+@code {
+    private string? _userOffice;
+
+    [Parameter, EditorRequired]
+    public string
+    SearchTerm
+    { get; set; } = default!;
+
+    private void
+    FilterSearchResults()
+    => NavManager
+    .NavigateTo
+    ($"/search/{SearchTerm}/office/{_userOffice}");
+
+    private void
+    ClearSearchFilter()
+    {
+        _userOffice = "";
+
+        NavManager
+        .NavigateTo
+        ($"/search/{SearchTerm}");
+
+    }
+}

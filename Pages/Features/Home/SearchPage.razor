@@ -1,0 +1,137 @@
+﻿@page "/search/{SearchTerm}"
+@page "/search/{SearchTerm}/office/{UserOffice}"
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+
+<nav aria-label="breadcrumb">
+
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item">
+            <a href="/">Inicio</a>
+        </li>
+
+        <li class="breadcrumb-item active" aria-current="page">
+            Buscar
+        </li>
+
+    </ol>
+
+</nav>
+
+<h3 class="mt-5 mb-4">Resultados para "@SearchTerm"</h3>
+
+<SearchFilter SearchTerm="@SearchTerm" />
+
+@if (_searchResults == null)
+{
+    <p>Cargando los resultados de la busqueda...</p>
+}
+else
+{
+
+    <UserDetails User="_selectedUser" />
+
+
+    <div class="grid">
+        @foreach (var user in _searchResults)
+        {
+
+            <UserCard User="user"
+                      OnSelected="HandleUserSelected" />
+
+        }
+
+    </div>
+
+}
+
+
+@code {
+    private IEnumerable<User>? _searchResults;
+    private IEnumerable<User> _cachedSearchResults = Array.Empty<User>();
+    private User? _selectedUser;
+
+    [Parameter]
+    public string
+    SearchTerm
+    { get; set; } = default!;
+
+    [Parameter]
+    public string?
+    UserOffice
+    { get; set; }
+
+    protected override async
+    Task OnInitializedAsync()
+    {
+        try
+        {
+            var baseUri = navigationManager.BaseUri;
+            var usersUrl = $"{baseUri}Users/users-data.json";
+            var allUsers = await
+
+            Http.GetFromJsonAsync<IEnumerable<User>>
+                (usersUrl);
+
+            _searchResults = allUsers!.Where
+            (
+                x =>
+
+                x.Name
+                .Contains
+                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+
+                x.Position
+                .Contains
+                (SearchTerm, StringComparison.CurrentCultureIgnoreCase)
+            );
+
+            _cachedSearchResults = _searchResults;
+
+        }
+        catch (HttpRequestException ex)
+        {
+            Console.WriteLine($"Hubo un problema al cargar la informacion del usuario:{ex.Message}");
+        }
+    }
+
+    protected override void
+    OnParametersSet()
+    {
+        if
+        (
+            _cachedSearchResults.Any() &&
+            !string.IsNullOrEmpty(UserOffice)
+        )
+        {
+
+            _searchResults = _cachedSearchResults.Where
+            (
+                x =>
+                x.Office
+                .Contains
+                (UserOffice, StringComparison.CurrentCultureIgnoreCase)
+            );
+
+        }
+        else if
+        (
+            _cachedSearchResults.Any() &&
+            UserOffice is null
+        )
+        {
+
+            _searchResults = _cachedSearchResults;
+
+        }
+    }
+
+
+    private void
+    HandleUserSelected(User user)
+    => _selectedUser = user;
+
+
+}

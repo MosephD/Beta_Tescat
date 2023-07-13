@@ -1,0 +1,37 @@
+﻿<div class="card shadow" style="width: 18rem;">
+    <img src="@User.Picture" class="card-img-top" style="height: 336px; object-fit: cover;}" alt="@User.Name">
+    <div class="card-body">
+        <h5 class="card-title">@User.FormattedName</h5>
+        <h6 class="card-subtitle mb-3 text-muted">
+            <i class="bi bi-person-fill"></i>
+            @User.Position
+        </h6>
+        <div class="d-flex justify-content-between mb-3">
+            <span>
+                <span class="bi bi-calendar2-week-fill me-2"></span>
+                @User.Entry_Date
+            </span>
+            <span>
+                <span class="bi bi-telephone-fill me-2"></span>
+                @User.Telephone
+            </span>
+        </div>
+
+        <button class="btn btn-primary" title="View" @onclick="@(async() => await OnSelected.InvokeAsync(User))">
+            <i class="bi bi-binoculars"></i>
+        </button>
+
+    </div>
+</div>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public User User
+    { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback<User> OnSelected
+    { get; set; }
+
+}

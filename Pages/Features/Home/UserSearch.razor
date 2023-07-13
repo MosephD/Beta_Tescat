@@ -1,0 +1,43 @@
+﻿@inject NavigationManager NavManager
+
+<div class="border p-4 rounded-3 searchbar">
+
+    <h1 class="display-4 text-center" style="outline:none">Buscar Usuario</h1>
+
+    <p class="lead text-center">Realiza tu busqueda por usuario</p>
+
+    <p class="mt-4">
+
+        <input type="text" class="form-control form-control-lg"
+        @onkeydown="SearchForUser"
+        @bind="_searchTerm"
+        @bind:event="oninput" />
+
+    </p>
+</div>
+
+@code {
+    private string _searchTerm = "";
+
+    private void SearchForUser(KeyboardEventArgs args)
+    {
+        if (args.Key != "Enter") return;
+
+
+        NavManager.NavigateTo($"/search/{_searchTerm}");
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

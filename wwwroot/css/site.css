@@ -31,8 +31,6 @@ a {
     background-color: var(--brand);
     border-color: var(--brand);
 }
-
-
     .btn-primary:hover {
         background-color: var(--brand-hover);
         border-color: var(--brand-hover);
@@ -54,6 +52,7 @@ a {
     grid-template-columns: repeat(3, 288px);
     column-gap: 123px;
     row-gap: 75px;
+    overflow:hidden
 }
 
 
