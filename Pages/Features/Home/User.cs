@@ -1,4 +1,5 @@
 ﻿namespace Beta_Tescat_0._1.Pages.Features.Home
+
 {
     public class User
     {
@@ -26,11 +27,11 @@
 
         public string Position { get; set; } = "";
 
-        public string Entry_Date { get; set; } = "";
+        public DateTime Entry_Date { get; set; }
 
         public int Telephone { get; set; }
 
-        public int Web_Privileges { get; set; }
+        public bool Web_Privileges { get; set; }
 
         public string Picture { get; set; } = "";
 

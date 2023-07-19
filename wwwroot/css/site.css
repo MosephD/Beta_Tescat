@@ -52,7 +52,7 @@ a {
     grid-template-columns: repeat(3, 288px);
     column-gap: 123px;
     row-gap: 75px;
-    overflow:hidden
+    overflow-x:hidden
 }
 
 

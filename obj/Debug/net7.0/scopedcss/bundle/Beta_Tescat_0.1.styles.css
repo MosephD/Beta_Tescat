@@ -7,17 +7,64 @@
 }
 
 label[b-mzfwodcndy] {
-    text-transform: uppercase;
+    /* text-transform: uppercase;*/
     margin-right: 10px;
 }
 
-input[b-mzfwodcndy] {
-    width: 100px;
-    margin-right: 20px;
-}
 
 button:first-of-type[b-mzfwodcndy] {
     margin-right: 10px
+}
+
+span[b-mzfwodcndy] {
+    cursor: pointer
+}
+
+button:first-of-type[b-mzfwodcndy] {
+    width: 98px;
+}
+
+button.user-length-filter[b-mzfwodcndy] {
+    width: 168.2px
+}
+
+.form-control[b-mzfwodcndy] {
+    display: inline-block
+}
+
+.dropdown-menu.user-length-filter[b-mzfwodcndy] {
+    white-space: nowrap;
+}
+
+input[b-mzfwodcndy] {
+    width: 45px;
+    margin-right: 10px
+}
+
+.btn-secondary.user-length-filter[b-mzfwodcndy] {
+    margin-right: 0px;
+    width: 66px
+}
+
+.btn-outline-secondary.user-length-filter[b-mzfwodcndy] {
+    width: 84px;
+    text-align: left;
+    position: relative;
+}
+
+.btn-outline-secondary.user-length-filter[b-mzfwodcndy] {
+    background-color: white;
+    color: #212529
+}
+
+    .btn-outline-secondary.user-length-filter[b-mzfwodcndy]::after {
+        position: absolute;
+        top: 50%;
+        transform: translate(0px, -50%);
+    }
+
+form button[b-mzfwodcndy] {
+    margin-bottom: 2.5px
 }
 /* _content/Beta_Tescat_0.1/Pages/Features/Home/UserDetails.razor.rz.scp.css */
 

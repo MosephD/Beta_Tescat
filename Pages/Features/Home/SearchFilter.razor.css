@@ -6,15 +6,62 @@
 }
 
 label {
-    text-transform: uppercase;
+    /* text-transform: uppercase;*/
     margin-right: 10px;
 }
 
-input {
-    width: 100px;
-    margin-right: 20px;
-}
 
 button:first-of-type {
     margin-right: 10px
+}
+
+span {
+    cursor: pointer
+}
+
+button:first-of-type {
+    width: 98px;
+}
+
+button.user-length-filter {
+    width: 168.2px
+}
+
+.form-control {
+    display: inline-block
+}
+
+.dropdown-menu.user-length-filter {
+    white-space: nowrap;
+}
+
+input {
+    width: 45px;
+    margin-right: 10px
+}
+
+.btn-secondary.user-length-filter {
+    margin-right: 0px;
+    width: 66px
+}
+
+.btn-outline-secondary.user-length-filter {
+    width: 84px;
+    text-align: left;
+    position: relative;
+}
+
+.btn-outline-secondary.user-length-filter {
+    background-color: white;
+    color: #212529
+}
+
+    .btn-outline-secondary.user-length-filter::after {
+        position: absolute;
+        top: 50%;
+        transform: translate(0px, -50%);
+    }
+
+form button {
+    margin-bottom: 2.5px
 }

@@ -1,36 +1,129 @@
 ﻿@inject NavigationManager NavManager
 
 <div class="filters">
-    <label for="UserOffice">Oficina</label>
+    <label >Filtrar busqueda:</label>
 
 
-    <input class="form-control"
-           id="UserOffice"
-           type="text"
-    @bind="_userOffice" />
+    @*<input class="form-control"
+    id="UserOffice"
+    type="text"
+    @bind="_userOffice" />*@
 
 
-    <button class="btn btn-outline-primary"
-    @onclick="FilterSearchResults">
+    <div class="dropdown">
 
-        Filtrar
+        <button class="btn btn-outline-primary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
 
-    </button>
+            @if (!string.IsNullOrEmpty(_userOffice))
+            {
+                <span>@_userOffice</span>
+            }
 
+            else
+            {
+                <span>Ciudad</span>
+            }
+
+        </button>
+
+        <ul class="dropdown-menu">
+            <li><span class="dropdown-item" @onclick='() => SelectOfficeFilter("Ensenada")'>Ensenada</span></li>
+            <li><span class="dropdown-item" @onclick='() => SelectOfficeFilter("Tijuana")'>Tijuana</span></li>
+            <li><span class="dropdown-item" @onclick='() => SelectOfficeFilter("San Diego")'>San Diego</span></li>
+        </ul>
+
+    </div>
+
+
+    <div class="dropdown">
+
+        <button class="btn btn-outline-primary dropdown-toggle user-length-filter"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false">
+
+            <span>Fecha de Ingreso</span>
+
+
+
+        </button>
+
+        <div class="dropdown-menu user-length-filter">
+
+
+            <form class="px-3 py-1">
+                <div>
+
+                    <button class="btn btn-outline-secondary
+                                dropdown-toggle user-length-filter"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside"
+                            aria-expanded="false">
+
+
+
+                        @if (!string.IsNullOrEmpty(_userLengthFilter))
+                        {
+                            <span>@_userLengthFilter</span>
+                        }
+
+                        else
+                        {
+                            <span>Mayor</span>
+                        }
+
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Mayor")'>Mayor</span></li>
+                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Menor")'>Menor</span></li>
+
+                    </ul>
+
+
+
+                    <label>a</label>
+
+
+
+                    <input class="form-control"
+                           id="DropdownInputLength"
+                           type="text"
+                    @bind="_userLength" /><label>años</label>
+
+                    <button class="btn btn-secondary user-length-filter">
+                        Filtrar
+                    </button>
+
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
 
     <button class="btn btn-outline-secondary"
     @onclick="ClearSearchFilter">
-
         Limpiar
-
     </button>
 
 </div>
 
 
-
 @code {
     private string? _userOffice;
+    private int? _userLength;
+    private string? _userLengthFilter;
+
+
+
 
     [Parameter, EditorRequired]
     public string
@@ -38,10 +131,28 @@
     { get; set; } = default!;
 
     private void
+    SelectOfficeFilter(string officeSelection)
+    {
+        _userOffice = officeSelection;
+        FilterSearchResults();
+    }
+
+    private void
+    SelectLengthFilter(string LengthFilter)
+    {
+        _userLengthFilter = LengthFilter;
+    }
+
+
+    private void
     FilterSearchResults()
-    => NavManager
-    .NavigateTo
-    ($"/search/{SearchTerm}/office/{_userOffice}");
+    {
+        if (!string.IsNullOrEmpty(_userOffice))
+        {
+            NavManager.NavigateTo
+            ($"/search/{SearchTerm}/office/{_userOffice}");
+        }
+    }
 
     private void
     ClearSearchFilter()
@@ -51,6 +162,6 @@
         NavManager
         .NavigateTo
         ($"/search/{SearchTerm}");
-
     }
 }
+

@@ -5,10 +5,10 @@
     "name": "Itzel Ameyalli Castro Castillo",
     "office": "Ensenada",
     "position": "Cuenta de Gastos",
-    "Entry_Date": "25/12/2022",
+    "Entry_Date": "2022-12-25",
     "telephone": 133,
     "department": "Administracion",
-    "Web_Privileges": 0
+    "Web_Privileges": false
   },
   {
     "id": 2,
@@ -16,9 +16,9 @@
     "name": "Marco Antonio Ramirez Perez",
     "office": "Ensenada",
     "position": "Comercializacion",
-    "Entry_Date": "25/12/2022",
+    "Entry_Date": "2022-12-26",
     "telephone": 133,
     "department": "Administracion",
-    "Web_Privileges": 1
+    "Web_Privileges": true
   }
 ]

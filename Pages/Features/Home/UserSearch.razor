@@ -23,9 +23,9 @@
     {
         if (args.Key != "Enter") return;
 
-
-        NavManager.NavigateTo($"/search/{_searchTerm}");
-
+        if (!string.IsNullOrEmpty(_searchTerm)){
+            NavManager.NavigateTo($"/search/{_searchTerm}");
+        }
     }
 
 }

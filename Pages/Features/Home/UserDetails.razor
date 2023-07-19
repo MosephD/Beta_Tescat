@@ -22,8 +22,7 @@
                     <div class="mt-4">
                         <span class="me-5">
 
-                            <span class="bi bi-calendar2-week-fill  me-2"></span>
-                            @_activeUser.Entry_Date
+                            <span class="bi bi-calendar2-week-fill  me-2"></span>                     @_activeUser.Entry_Date.ToString("yyyy-MM-dd")
 
 
                         </span>
@@ -46,7 +45,7 @@
 
                     <p>
                         <span class="bi bi-globe2 me-2"></span>Privilegios Web:
-                        @if (_activeUser.Web_Privileges != 1)
+                        @if (!_activeUser.Web_Privileges)
                         {
                             <span class="fw-bold">No</span>
 
@@ -75,7 +74,7 @@
 @code {
     private bool _isOpen;
     private User? _activeUser;
-   
+
 
     [Parameter, EditorRequired]
     public User? User { get; set; }
@@ -88,7 +87,7 @@
         {
             _activeUser = User;
             _isOpen = true;
-           
+
         }
     }
 
@@ -96,7 +95,7 @@
     {
         _activeUser = null;
         _isOpen = false;
-    
+
     }
 
 

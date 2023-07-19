@@ -28,6 +28,10 @@
 {
     <p>Cargando los resultados de la busqueda...</p>
 }
+else if (!_searchResults.Any())
+{
+    <p>No se han encontrado resultados ☹️</p>
+}
 else
 {
 
@@ -70,10 +74,8 @@ else
         {
             var baseUri = navigationManager.BaseUri;
             var usersUrl = $"{baseUri}Users/users-data.json";
-            var allUsers = await
-
-            Http.GetFromJsonAsync<IEnumerable<User>>
-                (usersUrl);
+            var allUsers =
+            await Http.GetFromJsonAsync<IEnumerable<User>>(usersUrl);
 
             _searchResults = allUsers!.Where
             (
