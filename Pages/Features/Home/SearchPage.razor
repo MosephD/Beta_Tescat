@@ -1,5 +1,5 @@
 ﻿@page "/search/{SearchTerm}"
-@page "/search/{SearchTerm}/office/{UserOffice}"
+@page "/search/{SearchTerm}/office/{UserOffice}/entrydate/{UserLength:int}"
 @inject HttpClient Http
 @inject NavigationManager navigationManager
 
@@ -62,9 +62,14 @@ else
     SearchTerm
     { get; set; } = default!;
 
-    [Parameter]
+    [Parameter, SupplyParameterFromQuery]
     public string?
     UserOffice
+    { get; set; }
+
+    [Parameter, SupplyParameterFromQuery]
+    public int?
+    UserLength
     { get; set; }
 
     protected override async

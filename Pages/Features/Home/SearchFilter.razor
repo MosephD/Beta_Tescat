@@ -1,7 +1,7 @@
 ﻿@inject NavigationManager NavManager
 
 <div class="filters">
-    <label >Filtrar busqueda:</label>
+    <label>Filtrar busqueda:</label>
 
 
     @*<input class="form-control"
@@ -67,9 +67,9 @@
 
 
 
-                        @if (!string.IsNullOrEmpty(_userLengthFilter))
+                        @if (!string.IsNullOrEmpty(_userLengthFilterSelector))
                         {
-                            <span>@_userLengthFilter</span>
+                            <span>@_userLengthFilterSelector</span>
                         }
 
                         else
@@ -96,7 +96,7 @@
                            type="text"
                     @bind="_userLength" /><label>años</label>
 
-                    <button class="btn btn-secondary user-length-filter">
+                    <button class="btn btn-secondary user-length-filter" @onclick="FilterSearchResults">
                         Filtrar
                     </button>
 
@@ -120,7 +120,7 @@
 @code {
     private string? _userOffice;
     private int? _userLength;
-    private string? _userLengthFilter;
+    private string? _userLengthFilterSelector;
 
 
 
@@ -138,26 +138,36 @@
     }
 
     private void
-    SelectLengthFilter(string LengthFilter)
+    SelectLengthFilter(string LengthFilterSelection)
     {
-        _userLengthFilter = LengthFilter;
+        _userLengthFilterSelector = LengthFilterSelection;
     }
 
 
     private void
     FilterSearchResults()
     {
-        if (!string.IsNullOrEmpty(_userOffice))
-        {
-            NavManager.NavigateTo
-            ($"/search/{SearchTerm}/office/{_userOffice}");
-        }
+
+        var uriWithQuerystring =
+        NavManager.GetUriWithQueryParameters(
+            new Dictionary<string, object?>()
+                {
+                    [nameof(SearchPage.UserOffice)] =
+                                string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
+                    [nameof(SearchPage.UserLength)] =
+                                                !_userLength.HasValue ? null : _userLength
+                }
+        );
+
+
+        NavManager.NavigateTo(uriWithQuerystring);
     }
 
     private void
     ClearSearchFilter()
     {
         _userOffice = "";
+        _userLength = 0;
 
         NavManager
         .NavigateTo
