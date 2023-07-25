@@ -22,7 +22,8 @@
                     <div class="mt-4">
                         <span class="me-5">
 
-                            <span class="bi bi-calendar2-week-fill  me-2"></span>                     @_activeUser.Entry_Date.ToString("yyyy-MM-dd")
+                            <span class="bi bi-calendar2-week-fill  me-2"></span>
+                            @_activeUser.Entry_Date.ToString("dd-MM-yyyy")
 
 
                         </span>
@@ -41,7 +42,15 @@
                     </div>
 
 
-                    <p class="mt-4 "><span class="bi bi-telephone-fill me-2"></span>Numero de Extension: <span class="fw-bold">@_activeUser.Telephone</span></p>
+                    <p class="mt-4 ">
+                        <span class="bi bi-telephone-fill me-2">
+                        </span>Numero de Extension: <span class="fw-bold">@_activeUser.Telephone</span>
+                    </p>
+
+                    <p class="mt-4 ">
+                        <span class="bi bi-phone-fill me-2">
+                        </span>Celular: <span class="fw-bold">@string.Format("({0}) {1} {2}", _activeUser.Mobile / 10000000, (_activeUser.Mobile / 10000) % 1000, _activeUser.Mobile % 10000)</span>
+                    </p>
 
                     <p>
                         <span class="bi bi-globe2 me-2"></span>Privilegios Web:
@@ -97,6 +106,5 @@
         _isOpen = false;
 
     }
-
 
 }

@@ -27,6 +27,11 @@ button.user-length-filter {
     width: 168.2px
 }
 
+    button.user-length-filter.applied {
+        width: 210px
+    }
+
+
 .form-control {
     display: inline-block
 }

@@ -28,6 +28,11 @@ button.user-length-filter[b-mzfwodcndy] {
     width: 168.2px
 }
 
+    button.user-length-filter.applied[b-mzfwodcndy] {
+        width: 210px
+    }
+
+
 .form-control[b-mzfwodcndy] {
     display: inline-block
 }
@@ -144,3 +149,8 @@ form button[b-mzfwodcndy] {
 input[b-2absosbzfd] {
     border: 2px solid var(--brand)
 }
+
+    input[b-2absosbzfd]::placeholder {
+        font-size: 1.2rem;
+        font-style: italic
+    }

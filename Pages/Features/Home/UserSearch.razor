@@ -4,15 +4,16 @@
 
     <h1 class="display-4 text-center" style="outline:none">Buscar Usuario</h1>
 
-    <p class="lead text-center">Realiza tu busqueda por usuario</p>
+    <p class="lead text-center">Realiza tu busqueda de usuarios</p>
 
     <p class="mt-4">
 
         <input type="text" class="form-control form-control-lg"
         @onkeydown="SearchForUser"
         @bind="_searchTerm"
-        @bind:event="oninput" />
-
+        @bind:event="oninput"
+        placeholder="Busca por nombre, puesto, departamento, telefono, etc..."/>
+        
     </p>
 </div>
 

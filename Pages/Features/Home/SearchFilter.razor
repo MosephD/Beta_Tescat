@@ -4,12 +4,6 @@
     <label>Filtrar busqueda:</label>
 
 
-    @*<input class="form-control"
-    id="UserOffice"
-    type="text"
-    @bind="_userOffice" />*@
-
-
     <div class="dropdown">
 
         <button class="btn btn-outline-primary dropdown-toggle"
@@ -40,22 +34,30 @@
 
     <div class="dropdown">
 
-        <button class="btn btn-outline-primary dropdown-toggle user-length-filter"
+        <button class="btn btn-outline-primary dropdown-toggle
+                user-length-filter
+                @_userLengthFilterSelectorStyles"
                 type="button"
                 data-bs-toggle="dropdown"
                 data-bs-auto-close="outside"
                 aria-expanded="false">
 
-            <span>Fecha de Ingreso</span>
+            @if (_userLength.HasValue && !string.IsNullOrEmpty(_userLengthFilterSelectorStyles))
+            {
+                <span>Ingreso: @_userLengthFilterSelector a @_userLength añ..</span>
+            }
 
-
+            else
+            {
+                <span>Fecha de Ingreso</span>
+            }
 
         </button>
 
         <div class="dropdown-menu user-length-filter">
 
 
-            <form class="px-3 py-1">
+            <div class="px-3 py-1">
                 <div>
 
                     <button class="btn btn-outline-secondary
@@ -66,23 +68,20 @@
                             aria-expanded="false">
 
 
-
-                        @if (!string.IsNullOrEmpty(_userLengthFilterSelector))
-                        {
+                       
                             <span>@_userLengthFilterSelector</span>
-                        }
+                        
 
-                        else
-                        {
-                            <span>Mayor</span>
-                        }
+                    
+
+
+
 
                     </button>
 
                     <ul class="dropdown-menu">
-                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Mayor")'>Mayor</span></li>
                         <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Menor")'>Menor</span></li>
-
+                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Mayor")'>Mayor</span></li>
                     </ul>
 
 
@@ -93,15 +92,15 @@
 
                     <input class="form-control"
                            id="DropdownInputLength"
-                           type="text"
+                           type="number"
                     @bind="_userLength" /><label>años</label>
 
-                    <button class="btn btn-secondary user-length-filter" @onclick="FilterSearchResults">
+                    <button class="btn btn-secondary user-length-filter" @onclick='() => LengthFilterButton(_userLength ?? 0)'>
                         Filtrar
                     </button>
 
                 </div>
-            </form>
+            </div>
 
 
         </div>
@@ -121,27 +120,82 @@
     private string? _userOffice;
     private int? _userLength;
     private string? _userLengthFilterSelector;
-
-
-
+    private string? _userLengthFilterSelectorStyles;
 
     [Parameter, EditorRequired]
     public string
     SearchTerm
     { get; set; } = default!;
 
+    [Parameter] public string? UserOffice { get; set; }
+
+    [Parameter] public int? UserLength { get; set; }
+
+    protected override void
+      OnInitialized()
+    {
+        @*we retrieve the values from SearchPage to set the values contained in the query string when loading the page directly*@
+        _userOffice = UserOffice ?? "";
+
+        _userLength = UserLength >= 0 ? UserLength : -UserLength;
+
+        if (!UserLength.HasValue || UserLength >= 0)
+        { _userLengthFilterSelector = "Mayor"; }
+        else
+        { _userLengthFilterSelector = "Menor"; }
+
+    
+        if (!UserLength.HasValue || string.IsNullOrEmpty(_userLengthFilterSelector))
+        { _userLengthFilterSelectorStyles = ""; }
+        else
+        { _userLengthFilterSelectorStyles = "applied"; }
+    }
+
     private void
     SelectOfficeFilter(string officeSelection)
     {
         _userOffice = officeSelection;
+
         FilterSearchResults();
     }
+
 
     private void
     SelectLengthFilter(string LengthFilterSelection)
     {
         _userLengthFilterSelector = LengthFilterSelection;
     }
+
+
+    private void
+    LengthFilterButton(int LengthValue)
+    {
+        if (_userLengthFilterSelector == "Menor")
+        {
+            _userLength = -LengthValue;
+
+        }
+        else
+        {
+            _userLength = LengthValue;
+            _userLengthFilterSelector = "Mayor";
+            @*setting "Mayor" as _userLenght default value*@
+
+        }
+
+        FilterSearchResults();
+
+        @*we set the value of _userLenght to be positive once the filter has been applied*@
+        _userLength = LengthValue;
+
+
+        _userLengthFilterSelectorStyles = "applied";
+
+
+
+    }
+
+
 
 
     private void
@@ -153,9 +207,9 @@
             new Dictionary<string, object?>()
                 {
                     [nameof(SearchPage.UserOffice)] =
-                                string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
+                                                                                        string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
                     [nameof(SearchPage.UserLength)] =
-                                                !_userLength.HasValue ? null : _userLength
+                                                                                        !_userLength.HasValue ? null : _userLength
                 }
         );
 
@@ -163,15 +217,20 @@
         NavManager.NavigateTo(uriWithQuerystring);
     }
 
+
     private void
     ClearSearchFilter()
     {
         _userOffice = "";
-        _userLength = 0;
+        _userLength = null;
+        _userLengthFilterSelector = "";
+
+        _userLengthFilterSelectorStyles = "";
 
         NavManager
         .NavigateTo
         ($"/search/{SearchTerm}");
     }
+
 }
 

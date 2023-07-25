@@ -31,6 +31,8 @@
 
         public int Telephone { get; set; }
 
+        public long Mobile { get; set; }
+
         public bool Web_Privileges { get; set; }
 
         public string Picture { get; set; } = "";

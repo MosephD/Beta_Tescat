@@ -22,7 +22,7 @@
 
 <h3 class="mt-5 mb-4">Resultados para "@SearchTerm"</h3>
 
-<SearchFilter SearchTerm="@SearchTerm" />
+<SearchFilter SearchTerm="@SearchTerm" UserOffice="@UserOffice" UserLength=UserLength/>
 
 @if (_searchResults == null)
 {
@@ -66,7 +66,7 @@ else
     public string?
     UserOffice
     { get; set; }
-
+    
     [Parameter, SupplyParameterFromQuery]
     public int?
     UserLength
@@ -92,7 +92,20 @@ else
 
                 x.Position
                 .Contains
+                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+
+                x.Department
+                .Contains
+                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+
+                x.Mobile.ToString()
+                .Contains
+                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+
+                x.Telephone.ToString()
+                .Contains
                 (SearchTerm, StringComparison.CurrentCultureIgnoreCase)
+
             );
 
             _cachedSearchResults = _searchResults;
@@ -104,37 +117,54 @@ else
         }
     }
 
-    protected override void
-    OnParametersSet()
+
+
+    private void
+    UpdateFilters()
     {
-        if
-        (
-            _cachedSearchResults.Any() &&
-            !string.IsNullOrEmpty(UserOffice)
-        )
+        var filters = new List<Func<User, bool>>();
+
+        if (!string.IsNullOrEmpty(UserOffice))
         {
-
-            _searchResults = _cachedSearchResults.Where
-            (
-                x =>
-                x.Office
-                .Contains
-                (UserOffice, StringComparison.CurrentCultureIgnoreCase)
-            );
-
+            filters.Add(x =>
+              x.Office?.Contains(UserOffice, StringComparison.CurrentCultureIgnoreCase) == true);
         }
-        else if
-        (
-            _cachedSearchResults.Any() &&
-            UserOffice is null
-        )
-        {
 
+
+        if (UserLength.HasValue)
+        {
+            var currentDate = DateTime.Now;
+
+            if (UserLength.Value >= 0)
+            {
+                filters.Add(x =>
+
+                (currentDate - x.Entry_Date).TotalDays / 365.25 > UserLength.Value);
+            }
+            else
+            {
+                filters.Add(x =>
+
+                (currentDate - x.Entry_Date).TotalDays / 365.25 < Math.Abs(UserLength.Value));
+            }
+        }
+
+
+        if (filters.Any())
+        {
+            _searchResults = _cachedSearchResults.Where(user => filters.All(filter => filter(user)));
+        }
+        else
+        {
             _searchResults = _cachedSearchResults;
-
         }
+
     }
 
+
+    protected override void
+    OnParametersSet()
+    => UpdateFilters();
 
     private void
     HandleUserSelected(User user)

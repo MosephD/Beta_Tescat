@@ -5,20 +5,22 @@
     "name": "Itzel Ameyalli Castro Castillo",
     "office": "Ensenada",
     "position": "Cuenta de Gastos",
-    "Entry_Date": "2022-12-25",
+    "entry_date": "2003-12-25",
     "telephone": 133,
+    "mobile": 6469472236,
     "department": "Administracion",
-    "Web_Privileges": false
+    "web_privileges": false
   },
   {
     "id": 2,
     "picture": "images/users/2.jpg",
     "name": "Marco Antonio Ramirez Perez",
-    "office": "Ensenada",
+    "office": "Tijuana",
     "position": "Comercializacion",
-    "Entry_Date": "2022-12-26",
-    "telephone": 133,
+    "entry_date": "2016-03-17",
+    "telephone": 106,
+    "mobile": 6641754655,
     "department": "Administracion",
-    "Web_Privileges": true
+    "web_privileges": true
   }
 ]
