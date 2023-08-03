@@ -68,11 +68,11 @@
                             aria-expanded="false">
 
 
-                       
-                            <span>@_userLengthFilterSelector</span>
-                        
 
-                    
+                        <span>@_userLengthFilterSelector</span>
+
+
+
 
 
 
@@ -80,8 +80,8 @@
                     </button>
 
                     <ul class="dropdown-menu">
-                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Menor")'>Menor</span></li>
                         <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Mayor")'>Mayor</span></li>
+                        <li><span class="dropdown-item" @onclick='() => SelectLengthFilter("Menor")'>Menor</span></li>
                     </ul>
 
 
@@ -144,7 +144,7 @@
         else
         { _userLengthFilterSelector = "Menor"; }
 
-    
+
         if (!UserLength.HasValue || string.IsNullOrEmpty(_userLengthFilterSelector))
         { _userLengthFilterSelectorStyles = ""; }
         else
@@ -207,9 +207,9 @@
             new Dictionary<string, object?>()
                 {
                     [nameof(SearchPage.UserOffice)] =
-                                                                                        string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
+                                                                                                        string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
                     [nameof(SearchPage.UserLength)] =
-                                                                                        !_userLength.HasValue ? null : _userLength
+                                                                                                        !_userLength.HasValue ? null : _userLength
                 }
         );
 

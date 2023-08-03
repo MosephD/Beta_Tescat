@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Beta_Tescat_0._1-2878d059-7513-4ebd-8354-eef4b47f0775")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Beta_Tescat_0.1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
