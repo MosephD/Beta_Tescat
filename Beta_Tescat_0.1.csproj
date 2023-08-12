@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Beta_Tescat.Shared\Beta_Tescat.Shared.csproj" />
+    <Folder Include="Persistence\Data\Migrations\" />
   </ItemGroup>
 
 </Project>

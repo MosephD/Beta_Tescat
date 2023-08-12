@@ -29,15 +29,16 @@
 
         public DateTime Entry_Date { get; set; }
 
+        public DateTime Last_Working_Date { get; set; }
+
         public int Telephone { get; set; }
 
         public long Mobile { get; set; }
 
         public bool Web_Privileges { get; set; }
 
+        public DateTime Last_Modif { get; set; }
+        
         public string Picture { get; set; } = "";
-
-
-
     }
 }

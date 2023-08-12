@@ -54,7 +54,7 @@
 
         </button>
 
-        <div class="dropdown-menu user-length-filter">
+        <div class="dropdown-menu user-length-filter @_closeLengthFilter">
 
 
             <div class="px-3 py-1">
@@ -121,6 +121,7 @@
     private int? _userLength;
     private string? _userLengthFilterSelector;
     private string? _userLengthFilterSelectorStyles;
+    private string? _closeLengthFilter;
 
     [Parameter, EditorRequired]
     public string
@@ -183,6 +184,7 @@
 
         }
 
+        
         FilterSearchResults();
 
         @*we set the value of _userLenght to be positive once the filter has been applied*@
@@ -190,7 +192,7 @@
 
 
         _userLengthFilterSelectorStyles = "applied";
-
+     @*   _closeLengthFilter = "close";*@
 
 
     }
@@ -207,14 +209,15 @@
             new Dictionary<string, object?>()
                 {
                     [nameof(SearchPage.UserOffice)] =
-                                                                                                        string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
+                        string.IsNullOrEmpty(_userOffice) ? null : _userOffice,
                     [nameof(SearchPage.UserLength)] =
-                                                                                                        !_userLength.HasValue ? null : _userLength
+                        !_userLength.HasValue ? null : _userLength
                 }
         );
 
 
         NavManager.NavigateTo(uriWithQuerystring);
+       
     }
 
 
@@ -223,9 +226,13 @@
     {
         _userOffice = "";
         _userLength = null;
-        _userLengthFilterSelector = "";
+        _userLengthFilterSelector = "Mayor";
 
         _userLengthFilterSelectorStyles = "";
+      @*  _closeLengthFilter = "close";*@
+
+
+       
 
         NavManager
         .NavigateTo

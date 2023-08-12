@@ -1132,16 +1132,6 @@
             "rid": "win"
           }
         }
-      },
-      "Beta_Tescat.Shared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/Beta_Tescat.Shared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Beta_Tescat.Shared.dll": {}
-        }
       }
     }
   },
@@ -3462,16 +3452,10 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "Beta_Tescat.Shared/1.0.0": {
-      "type": "project",
-      "path": "../Beta_Tescat.Shared/Beta_Tescat.Shared.csproj",
-      "msbuildProject": "../Beta_Tescat.Shared/Beta_Tescat.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Beta_Tescat.Shared >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.9"
@@ -3504,11 +3488,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat.Shared\\Beta_Tescat.Shared.csproj": {
-              "projectPath": "C:\\Users\\medin\\source\\repos\\Tescat\\Beta_Tescat.Shared\\Beta_Tescat.Shared.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

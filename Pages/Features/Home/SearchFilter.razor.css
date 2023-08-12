@@ -31,6 +31,11 @@ button.user-length-filter {
         width: 210px
     }
 
+.dropdown-menu.show.close {
+    display: none;
+}
+
+
 
 .form-control {
     display: inline-block

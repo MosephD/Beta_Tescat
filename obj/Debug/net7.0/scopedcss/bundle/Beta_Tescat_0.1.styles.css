@@ -32,6 +32,11 @@ button.user-length-filter[b-mzfwodcndy] {
         width: 210px
     }
 
+.dropdown-menu.show.close[b-mzfwodcndy] {
+    display: none;
+}
+
+
 
 .form-control[b-mzfwodcndy] {
     display: inline-block
