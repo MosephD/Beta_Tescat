@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Beta_Tescat_0._1.Persistence.Data.Migrations
+namespace Beta_Tescat_0._1.Migrations
 {
     [DbContext(typeof(TescatContext))]
-    [Migration("20230809005502_InitialEntities")]
-    partial class InitialEntities
+    [Migration("20230812031021_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,8 @@ namespace Beta_Tescat_0._1.Persistence.Data.Migrations
 
                     b.Property<string>("Department")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("Entry_Date")
                         .HasColumnType("datetime2");
@@ -51,7 +52,8 @@ namespace Beta_Tescat_0._1.Persistence.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Office")
                         .IsRequired()

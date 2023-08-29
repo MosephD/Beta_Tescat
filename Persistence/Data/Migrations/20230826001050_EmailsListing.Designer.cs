@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Beta_Tescat_0._1.Persistence.Data.Migrations
+namespace Beta_Tescat_0._1.Migrations
 {
     [DbContext(typeof(TescatContext))]
-    [Migration("20230812001404_SeedDatabase")]
-    partial class SeedDatabase
+    [Migration("20230826001050_EmailsListing")]
+    partial class EmailsListing
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,8 @@ namespace Beta_Tescat_0._1.Persistence.Data.Migrations
 
                     b.Property<string>("Department")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("Entry_Date")
                         .HasColumnType("datetime2");
@@ -51,18 +52,20 @@ namespace Beta_Tescat_0._1.Persistence.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Office")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Telephone")
                         .HasColumnType("int");
@@ -103,6 +106,43 @@ namespace Beta_Tescat_0._1.Persistence.Data.Migrations
                             Telephone = 133,
                             Web_Privileges = false
                         });
+                });
+
+            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.UserEmails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("UserEmail")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserEmails");
+                });
+
+            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.UserEmails", b =>
+                {
+                    b.HasOne("Beta_Tescat_0._1.Persistence.Data.User", "User")
+                        .WithMany("Emails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.User", b =>
+                {
+                    b.Navigation("Emails");
                 });
 #pragma warning restore 612, 618
         }

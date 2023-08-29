@@ -4,6 +4,7 @@ using Beta_Tescat_0._1.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Beta_Tescat_0._1.Migrations
 {
     [DbContext(typeof(TescatContext))]
-    partial class TescatContextModelSnapshot : ModelSnapshot
+    [Migration("20230812031234_SeedDatabase")]
+    partial class SeedDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,8 +35,8 @@ namespace Beta_Tescat_0._1.Migrations
 
                     b.Property<string>("Department")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("Entry_Date")
                         .HasColumnType("datetime2");
@@ -53,16 +56,15 @@ namespace Beta_Tescat_0._1.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Office")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Picture")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Position")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Telephone")
                         .HasColumnType("int");
@@ -103,58 +105,6 @@ namespace Beta_Tescat_0._1.Migrations
                             Telephone = 133,
                             Web_Privileges = false
                         });
-                });
-
-            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.UserEmails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("UserEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserEmails");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            UserEmail = "gastos.ens@grupoaceves.com",
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            UserEmail = "m.ramirez@grupoaceves.com",
-                            UserId = 2
-                        });
-                });
-
-            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.UserEmails", b =>
-                {
-                    b.HasOne("Beta_Tescat_0._1.Persistence.Data.User", "User")
-                        .WithMany("Emails")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Beta_Tescat_0._1.Persistence.Data.User", b =>
-                {
-                    b.Navigation("Emails");
                 });
 #pragma warning restore 612, 618
         }

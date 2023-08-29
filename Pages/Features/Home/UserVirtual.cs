@@ -1,7 +1,7 @@
 ﻿namespace Beta_Tescat_0._1.Pages.Features.Home
 
 {
-    public class User
+    public class UserVirtual
     {
         public int Id { get; set; }
 

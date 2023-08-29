@@ -1,0 +1,210 @@
+﻿@page "/add-user"
+
+<PageTitle>Agregar Usuario</PageTitle>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+
+        <li class="breadcrumb-item">
+            <a href="/">Inicio</a>
+        </li>
+
+        <li class="breadcrumb-item active" aria-current="page">
+            Agregar Usuario
+        </li>
+
+    </ol>
+
+</nav>
+
+<h3 class="mt-5 mb-4"> Agregar Usuario</h3>
+
+
+@if (User is not null)
+{
+    <EditForm Model="@User">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+
+        <FormSection Title="Detalles Basicos" HelpText="Informacion basica para identificar al empleado.">
+
+            <FormFieldSet Width="col-8">
+
+                <label for="userName"
+                       class="font-weight-bold text-secondary">
+                    Nombre
+                </label>
+                <InputText @bind-Value="User.Name"
+                           class="form-control"
+                           id="userName" />
+            </FormFieldSet>
+
+            <FormFieldSet Width="col-8">
+                <label for="userPosition"
+                       class="font-weight-bold text-secondary">
+                    Puesto
+                </label>
+                <InputText @bind-Value="User.Position"
+                           class="form-control"
+                           id="userPosition" />
+            </FormFieldSet>
+
+            <div class="row">
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="userOffice"
+                               class="font-weight-bold text-secondary">
+                            Oficina
+                        </label>
+                        <InputSelect id="userOffice" @bind-Value="User.Office" class="form-select">
+                            <option value="Ensenada">Ensenada</option>
+                            <option value="Tijuana">Tijuana</option>
+                            <option value="San Diego">San Diego</option>
+                        </InputSelect>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="userDepartment"
+                               class="font-weight-bold text-secondary">
+                            Departamento
+                        </label>
+                        <InputSelect id="userDepartment" @bind-Value="User.Department" class="form-select">
+                            <option value="Administrativo">Administrativo</option>
+                            <option value="Operativo">Operativo</option>
+                        </InputSelect>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </FormSection>
+
+
+        <FormSection Title="Informacion De Contacto" HelpText="Informacion de contacto del usuario.">
+
+
+            <FormFieldSet Width="col-6">
+
+                <label for="userPhone"
+                       class="font-weight-bold text-secondary">
+                    Extension
+                </label>
+                <InputNumber @bind-Value="User.Telephone"
+                             class="form-control"
+                             id="userPhone" />
+            </FormFieldSet>
+
+            <FormFieldSet Width="col-6">
+                <label for="userMobile"
+                       class="font-weight-bold text-secondary">
+                    Celular
+                </label>
+                <InputNumber @bind-Value="User.Mobile"
+                             class="form-control"
+                             id="userMobile" />
+            </FormFieldSet>
+
+
+            @{
+                var i = 0;
+            }
+
+            @foreach (var userEmail in User.Emails)
+            {
+                
+                    i++;
+                
+                userEmail.Id = i;
+
+
+                <div class="row" style="margin-bottom:8px;">
+
+
+                    <div class="col-1" style="text-align:center;">
+                        <div class="form-group">
+                            <label class="font-weight-bold text-secondary">Email</label>
+                            <p style="margin:0;">@userEmail.Id</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="userEmailAdress" class="font-weight-bold text-secondary">Direccion</label>
+                            <InputText @bind-Value="userEmail.UserEmail" class="form-control" id="userEmailAdress" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-1 d-flex mt-3">
+                        <button @onclick="@(() => User.Emails.Remove(userEmail))" class="btn btn-link" type="button">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+            }
+
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-outline-primary" type="button"
+                    @onclick="@(() => User.Emails.Add(new UserEmails()))">
+
+                        Agregar Email
+
+                    </button>
+                </div>
+            </div>
+
+        </FormSection>
+
+        <FormSection Title="Privilegios Web" HelpText="Especificar si el usuario cuenta con privilegios web elevados.">
+
+            <div class="row">
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="userWebPriv"
+                               class="font-weight-bold text-secondary">
+                            Privilegios
+                        </label>
+                        <InputSelect id="userWebPriv" @bind-Value="User.Web_Privileges" class="form-select">
+                            <option value="true">Si</option>
+                            <option value="false">No</option>
+                        </InputSelect>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </FormSection>
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+
+
+    </EditForm>
+}
+@code {
+
+    private User? User { get; set; }
+
+    protected override void OnInitialized()
+    {
+        User = new();
+    }
+
+}

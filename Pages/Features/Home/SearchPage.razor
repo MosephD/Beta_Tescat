@@ -1,7 +1,9 @@
 ﻿@page "/search/{SearchTerm}"
 @page "/search/{SearchTerm}/office/{UserOffice}/entrydate/{UserLength:int}"
-@inject HttpClient Http
-@inject NavigationManager navigationManager
+
+@using Microsoft.EntityFrameworkCore;
+@inject TescatContext Context
+
 
 
 <nav aria-label="breadcrumb">
@@ -22,7 +24,7 @@
 
 <h3 class="mt-5 mb-4">Resultados para "@SearchTerm"</h3>
 
-<SearchFilter SearchTerm="@SearchTerm" UserOffice="@UserOffice" UserLength=UserLength/>
+<SearchFilter SearchTerm="@SearchTerm" UserOffice="@UserOffice" UserLength=UserLength />
 
 @if (_searchResults == null)
 {
@@ -53,8 +55,8 @@ else
 
 
 @code {
-    private IEnumerable<User>? _searchResults;
-    private IEnumerable<User> _cachedSearchResults = Array.Empty<User>();
+    private User[]? _searchResults { get; set; }
+    private User[]? _cachedSearchResults { get; set; } = Array.Empty<User>();
     private User? _selectedUser;
 
     [Parameter]
@@ -66,56 +68,60 @@ else
     public string?
     UserOffice
     { get; set; }
-    
+
     [Parameter, SupplyParameterFromQuery]
     public int?
     UserLength
     { get; set; }
+
+
 
     protected override async
     Task OnInitializedAsync()
     {
         try
         {
-            var baseUri = navigationManager.BaseUri;
-            var usersUrl = $"{baseUri}Users/users-data.json";
-            var allUsers =
-            await Http.GetFromJsonAsync<IEnumerable<User>>(usersUrl);
 
-            _searchResults = allUsers!.Where
-            (
+            var searchTermLower = SearchTerm.ToLower();
+
+
+            var query = Context.Users
+            .Where
+                (
                 x =>
 
-                x.Name
+                x.Name.ToLower()
                 .Contains
-                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+                (searchTermLower) ||
 
-                x.Position
+                x.Position.ToLower()
                 .Contains
-                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+                (searchTermLower) ||
 
-                x.Department
+                x.Department.ToLower()
                 .Contains
-                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+                (searchTermLower) ||
 
                 x.Mobile.ToString()
                 .Contains
-                (SearchTerm, StringComparison.CurrentCultureIgnoreCase) ||
+                (searchTermLower) ||
 
                 x.Telephone.ToString()
                 .Contains
-                (SearchTerm, StringComparison.CurrentCultureIgnoreCase)
+                (searchTermLower)
 
             );
 
+            _searchResults = await query.ToArrayAsync();
             _cachedSearchResults = _searchResults;
 
         }
-        catch (HttpRequestException ex)
+        catch (Exception ex)
         {
             Console.WriteLine($"Hubo un problema al cargar la informacion del usuario:{ex.Message}");
         }
     }
+
 
 
 
@@ -152,7 +158,7 @@ else
 
         if (filters.Any())
         {
-            _searchResults = _cachedSearchResults.Where(user => filters.All(filter => filter(user)));
+            _searchResults = _cachedSearchResults?.Where(user => filters.All(filter => filter(user))).ToArray();
         }
         else
         {
@@ -171,4 +177,7 @@ else
     => _selectedUser = user;
 
 
+
+
 }
+

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Beta_Tescat_0._1.Persistence.Data.Migrations
+namespace Beta_Tescat_0._1.Migrations
 {
     /// <inheritdoc />
     public partial class SeedDatabase : Migration

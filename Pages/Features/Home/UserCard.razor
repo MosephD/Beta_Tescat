@@ -1,7 +1,7 @@
 ﻿<div class="card shadow" style="width: 18rem;">
     <img src="@User.Picture" class="card-img-top" style="height: 336px; object-fit: cover;}" alt="@User.Name">
     <div class="card-body">
-        <h5 class="card-title">@User.FormattedName</h5>
+        <h5 class="card-title">@FormattedName</h5>
         <h6 class="card-subtitle mb-3 text-muted">
             <i class="bi bi-person-fill"></i>
             @User.Position
@@ -25,7 +25,6 @@
 </div>
 
 @code {
-
     [Parameter, EditorRequired]
     public User User
     { get; set; } = default!;
@@ -34,4 +33,29 @@
     public EventCallback<User> OnSelected
     { get; set; }
 
+
+    public string FormattedName
+    {
+        get
+        {
+            if (!string.IsNullOrEmpty(User.Name))
+            {
+                var names = User.Name.Split(' ');
+                if (names.Length >= 2)
+                {
+                    return $"{names[0]} {names[1]}";
+                }
+                
+            }
+            return User.Name;
+        }
+    }
+
+
+
+   
+
+
 }
+
+

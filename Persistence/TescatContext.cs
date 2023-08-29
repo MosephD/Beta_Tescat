@@ -1,21 +1,24 @@
-﻿using Beta_Tescat_0._1.Persistence.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Beta_Tescat_0._1.Persistence.Data;
+
 
 namespace Beta_Tescat_0._1.Persistence
 {
     public class TescatContext : DbContext
     {
-        public DbSet<User> Users => Set<User>();
+
 
 
         public TescatContext(
             DbContextOptions<TescatContext> options) : base(options) { }
 
+        public DbSet<User> Users => Set<User>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new UserConfig());
+
 
             modelBuilder.Entity<User>().HasData(
                 new User
@@ -43,7 +46,26 @@ namespace Beta_Tescat_0._1.Persistence
                     Web_Privileges = false
                 });
 
+            modelBuilder.Entity<UserEmails>().HasData(
+                new UserEmails
+                {
+                    Id = 1,
+                    UserEmail = "gastos.ens@grupoaceves.com",
+                    UserId = 1,
+                },
+                new UserEmails
+                {
+                    Id = 2,
+                    UserEmail = "m.ramirez@grupoaceves.com",
+                    UserId = 2,
+                });
 
+
+
+            modelBuilder.Entity<UserEmails>()
+            .HasOne(p => p.User)
+            .WithMany(b => b.Emails)
+            .HasForeignKey(p => p.UserId);
         }
 
     }

@@ -67,6 +67,7 @@ C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\staticwebass
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Pages\Features\Home\SearchFilter.razor.rz.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Pages\Features\Home\UserDetails.razor.rz.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Pages\Features\Home\UserSearch.razor.rz.scp.css
+C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\Pages\Features\MangeUsers\FormSection.razor.rz.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\bundle\Beta_Tescat_0.1.styles.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\scopedcss\projectbundle\Beta_Tescat_0.1.bundle.scp.css
 C:\Users\medin\source\repos\Tescat\Beta_Tescat_0.1\obj\Debug\net7.0\Beta_Tescat_0.1.csproj.CopyComplete
